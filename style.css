@@ -1,0 +1,86 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.loading-overlay {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  display: none; /* Change to flex */
+  background-color: black;
+  transition: all 0.5s;
+  z-index: 5;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading-overlay > * {
+  animation: beat 0.5s linear;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+@keyframes beat {
+  from{transform: scale(1);}
+  to{transform: scale(1.1);}
+}
+
+.loading-overlay--disabled {
+  animation: fade 1s linear;
+  animation-fill-mode: forwards;
+}
+
+/* The animation code */
+@keyframes fade {
+  100% {
+    opacity: 0;
+    transform: scale(4);
+    display: none;
+    z-index: -1;
+  }
+}
+
+.panel, .instructions {
+  display: none; /* Remove */
+  position: absolute;
+  left: 50px;
+  top: 0;
+  z-index: 1;
+  padding: 10px;
+}
+
+.instructions {
+  top: auto;
+  bottom: 50px;
+}
+
+.instructions img {
+  width: 200px;
+}
+
+button {
+  background: rgba(0,0,0,0.0);
+  border: none;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  margin-top: 5px;
+  color: white;
+  font-size: 1.2em;
+  cursor: pointer;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  transition: all 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button svg {
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 5px;
+}
