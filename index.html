@@ -1,7 +1,9 @@
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <link rel="stylesheet" href="/style.css" />
+    <script src="./components.js"></script>
   </head>
   <body>
     <!-- Loading -->
@@ -22,10 +24,22 @@
 
     <!-- 3D Scene -->
     <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere id="sphere" position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
+      <a-assets>
+        <a-asset-item id="room-asset" src="./assets/gltf/room.glb"></a-asset-item>
+        <img id="sky" src="./assets/hdri/sky.jpg">
+        <audio id="switch-sound" preload src="assets/media/switch.wav"></audio>
+        <video id="movie" preload src="./assets/media/spring.webm"></video>
+      </a-assets>
+      <a-entity id="room" toggle-lamp-materials gltf-model="#room-asset">
+        <a-video id="tv" geometry="width: 1.24; height: 0.79" rotation="0 180 0" position="-0.11968 1.69695 4.42609" src="#movie"></a-video>
+      </a-entity>
+      <a-entity  rotation="0 -224.828638809335 0" position="2.5189429381644053 1.6 -1.576823932797997">
+        <a-entity camera look-controls wasd-controls="acceleration:10"></a-entity>
+      </a-entity>
+      <a-entity id="point-light" toggle-light position="-0.1012 2.58381 1.28569" light="type: point; color: #000; distance: 7.01"></a-entity>
+      <a-entity id="ambient-light" light="type: ambient; color: #222"></a-entity>
+      <a-sky src="#sky"></a-sky>
     </a-scene>
+    <script src="./script.js"></script>
   </body>
 </html>
