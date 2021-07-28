@@ -44,7 +44,7 @@ body {
 }
 
 .panel, .instructions {
-  display: block; /* Remove */
+  display: none; /* Remove */
   position: absolute;
   left: 50px;
   top: 0;
