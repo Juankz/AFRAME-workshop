@@ -1,0 +1,20 @@
+{
+  "name": "workshop",
+  "version": "1.0.0",
+  "description": "Aframe Workshop Huge Inc",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve",
+    "watch": "aframe-watcher *.html"
+  },
+  "keywords": [
+    "Aframe"
+  ],
+  "author": "Juan Velandia - juankz@protonmail.com",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "aframe-watcher": "^1.4.0",
+    "serve": "^12.0.0"
+  }
+}
